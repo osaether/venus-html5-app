@@ -6,6 +6,7 @@ import InverterCharger from "./InverterCharger"
 import AcLoads from "./AcLoads"
 import DcLoads from "./DcLoads"
 import Solar from "./Solar"
+import Chargers from "./Chargers"
 
 export default class Metrics extends Component {
   ref = React.createRef()
@@ -39,6 +40,7 @@ export default class Metrics extends Component {
         <AcLoads portalId={portalId} vebusInstanceId={vebusInstanceId} />
         <DcLoads portalId={portalId} />
         <Solar portalId={portalId} />
+        <Chargers portalId={portalId} />
       </div>
     )
   }
