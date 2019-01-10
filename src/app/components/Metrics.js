@@ -40,7 +40,7 @@ export default class Metrics extends Component {
         <AcLoads portalId={portalId} vebusInstanceId={vebusInstanceId} />
         <DcLoads portalId={portalId} />
         <Solar portalId={portalId} />
-        <Chargers portalId={portalId} />
+        <Chargers portalId={portalId} onChangeInputLimitClicked={onChangeShoreInputLimitClicked} />
       </div>
     )
   }
