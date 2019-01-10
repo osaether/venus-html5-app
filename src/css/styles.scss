@@ -236,13 +236,13 @@ header {
   }
 }
 
-.inverter-charger {
+.charger {
   align-items: flex-start;
   flex-direction: column;
   height: auto;
 }
 
-.inverter-charger__mode-selector {
+.charger__mode-selector {
   margin-top: $marginBottom;
   height: 100%;
   width: 100%;
@@ -255,10 +255,14 @@ header {
   }
 }
 
-.inverter-charger__mode-selector > .selector-button {
+.charger__mode-selector > .selector-button {
   &:not(:first-child) {
     margin-left: 10px;
   }
+}
+
+.charger__output {
+  margin-top: 1.35em;
 }
 
 button:disabled {
