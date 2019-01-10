@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { MqttClientContext } from "../contexts"
 import * as mqtt from "mqtt"
 
-import { getMessageJson } from "../utils/util"
+import { flatten, getMessageJson } from "../utils/util"
 import Logger from "../utils/logger"
 export const STATUS = {
   CONNECTING: "connecting",
@@ -80,6 +80,10 @@ class MqttClientProvider extends Component {
     this.keepaliveHAndlerRef = setInterval(this.sendKeepalive, 50000)
   }
 
+  subscribeInBulk = topics => {
+    flatten(Object.values(topics)).forEach(this.subscribe)
+  }
+
   subscribe = topic => {
     if (!this.topicsSubscribed.has(topic)) {
       Logger.log(`Subscribing to ${topic}`)
@@ -148,6 +152,7 @@ class MqttClientProvider extends Component {
         value={{
           isConnected: this.isConnected(),
           subscribe: this.state.client ? this.subscribe : null,
+          subscribeInBulk: this.state.client ? this.subscribeInBulk : null,
           unsubscribe: this.state.client ? this.unsubscribe : null,
           publish: this.state.client ? this.publish : null,
           messages: this.state.messages,

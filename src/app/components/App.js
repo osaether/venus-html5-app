@@ -17,6 +17,7 @@ import Connecting from "./../components/Connecting"
 import Header from "./../components/Header"
 import Fade, { viewChangeDelay } from "./../components/Fade"
 import Logger from "../utils/logger"
+import GetSystemConfig from "../mqtt/victron/GetSystemConfig"
 
 const Main = ({ isConnected, children, setView }) => {
   return (
@@ -86,6 +87,7 @@ class App extends Component {
                         {vebusInstanceId => {
                           return (
                             <>
+                              <GetSystemConfig portalId={portalId} />
                               <Header
                                 portalId={portalId}
                                 isConnected={isConnected}
