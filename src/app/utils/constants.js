@@ -67,3 +67,8 @@ export const VIEWS = {
   REMOTE_CONSOLE: "REMOTE_CONSOLE",
   MQTT_UNAVAILABLE: "MQTT_UNAVAILABLE"
 }
+
+export const RELAY_STATE = {
+  OFF: 0,
+  ON: 1
+}

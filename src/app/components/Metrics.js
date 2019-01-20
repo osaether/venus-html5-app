@@ -8,6 +8,7 @@ import Inverters from "./Inverters"
 import InverterCharger from "./InverterCharger"
 import Solar from "./Solar"
 import Chargers from "./Chargers"
+import Relay from "./Relay"
 
 export default class Metrics extends Component {
   metricsRef = React.createRef()
@@ -38,6 +39,7 @@ export default class Metrics extends Component {
         <Solar {...commonProps} />
         <Chargers {...commonProps} />
         <Inverters {...commonProps} />
+        <Relay {...commonProps} />
       </div>
     )
   }
