@@ -1,4 +1,5 @@
 import React from "react"
+import Switch from "react-switch"
 
 import { RELAY_STATE } from "../../utils/constants"
 
@@ -14,6 +15,7 @@ import "./Relay.scss"
 
 const getTopics = portalId => {
   return {
+    relayFunction: `N/${portalId}/settings/0/Settings/Relay/Function`,
     state: `N/${portalId}/system/0/Relay/0/State`
   }
 }
@@ -21,15 +23,15 @@ const getTopics = portalId => {
 export const Relay = ({ state, OnUpdateState }) => {
   return (
     <div className="metric relay">
-      <HeaderView title="Relay" />
-      <div className="relay__state-set">
-        <SelectorButton active={state === RELAY_STATE.OFF} onClick={() => OnUpdateState(RELAY_STATE.ON)}>
-          On
-        </SelectorButton>
-        <SelectorButton active={state === RELAY_STATE.ON} onClick={() => OnUpdateState(RELAY_STATE.OFF)}>
-          Off
-        </SelectorButton>
-      </div>
+      <label htmlFor="normal-switch">
+        <span>Relay 1</span>
+        {state === RELAY_STATE.OFF && (
+          <Switch onColor="#30afff" onChange={() => OnUpdateState(RELAY_STATE.ON)} checked={state} />
+        )}
+        {state === RELAY_STATE.ON && (
+          <Switch onColor="#30afff" onChange={() => OnUpdateState(RELAY_STATE.OFF)} checked={state} />
+        )}
+      </label>
     </div>
   )
 }
