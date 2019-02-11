@@ -3,15 +3,9 @@ import Switch from "react-switch"
 
 import { RELAY_STATE } from "../../utils/constants"
 
-import HeaderView from "../HeaderView/HeaderView"
 import HidingContainer from "../HidingContainer"
-import MetricValues from "../MetricValues"
 import MqttSubscriptions from "../../mqtt/MqttSubscriptions"
 import MqttWriteValue from "../../mqtt/MqttWriteValue"
-import NumericValue from "../NumericValue/index"
-import SelectorButton from "../SelectorButton"
-
-import "./Relay.scss"
 
 const getTopics = portalId => {
   return {
